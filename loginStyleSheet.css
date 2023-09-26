@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'FontB';
+        src: url('assets/Cocogoose Pro-trial.ttf');
+}
+
+body {
+    background-image: url('assets/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#loginWidget{
+    width: 400px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 7%;
+}
+#loginTitle{
+    text-align: center;
+    font-size: 50px;
+    font-family: FontB;
+    padding-top: 10%;
+}
+.usernameWidget{
+    width: 90%;
+    height: 10%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    margin: auto;
+    margin-bottom: 4%;
+}
+.passwordWidget{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    margin: auto;
+    margin-bottom: 0%;
+}
+#usernameInput, #passwordInput{
+    border-style: none none solid none;
+    outline: none;
+    color: black;
+    height: 90%;
+    width: 100%;
+    font-size:x-large
+}
+#userIcon, #passwordIcon{
+    width: 90%;
+    height: width;
+}
+.forgotText{
+    margin-left: 53%;
+    margin-bottom: 3%;
+}
+#forgotPassword, #forgotLink{
+    text-align: center;
+    font-family: FontB;
+    font-size: 10px;
+}
+
+#loginButton{
+    width: 80%;
+    height: 10%;
+    margin-top: 10%;
+    margin-left: 10%;
+    border-width: 0;
+    border-radius: 30px;
+    font-family: FontB;
+}
+
+.joinText{
+    margin: auto;
+    width: 22%;
+    margin-top: 2%;
+}
+#joinNow, #createLink{
+    text-align: center;
+    font-family: FontB;
+    font-size: 10px;
+}

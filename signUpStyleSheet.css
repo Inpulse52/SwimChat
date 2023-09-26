@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'FontB';
+        src: url('assets/Cocogoose Pro-trial.ttf');
+}
+
+body {
+    background-image: url('assets/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.signUpBoxes{
+    width: 800px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: auto;
+    margin-top: 7%;
+}
+
+.formWidget{
+    background-color: rgb(255, 255, 255);
+}
+#signUpTitle{
+    text-align: center;
+    font-size: 50px;
+    font-family: FontB;
+    margin-top: 10%;
+}
+.emailWidget, .usernameWidget, .passwordWidget{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    margin: auto;
+    margin-bottom: 4%;
+}
+#emailInput, #usernameInput, #passwordInput{
+    border-style: none none solid none;
+    outline: none;
+    color: black;
+    height: 90%;
+    width: 100%;
+    font-size:x-large
+}
+#emailIcon, #userIcon, #passwordIcon{
+    width: 90%;
+    height: width;
+}
+#createButton{
+    width: 80%;
+    height: 10%;
+    margin-top: 2%;
+    margin-left: 10%;
+    border-width: 0;
+    border-radius: 30px;
+    font-family: FontB;
+}
+.loginText{
+    text-align: center;
+    margin-top: 3%;
+}
+#alreadyTitle, #loginLink{
+    text-align: center;
+    font-family: FontB;
+    font-size: small;
+}
+
+.infoWidget{
+    background-color: rgb(53, 108, 167);
+}
+
+#diverImage{
+    width: 100%;
+}
+
+#hello{
+    text-align: center;
+    font-family: FontB;
+    font-size: 30px;
+}
+
+#createAnAccount, #connectTo, #swimmersAndMore{
+    text-align: center;
+    font-family: FontB;
+    font-size: medium;
+}

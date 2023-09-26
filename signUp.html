@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Swim Chat Sign Up</title>
+        <meta name="Swim Chat Sign Up Page" content="Sign Up">
+        <link rel="stylesheet" type="text/css" href="signUpStyleSheet.css">
+        <link rel="icon" href="assets/swimChatLogo.png">
+    </head>
+
+    <body>
+        <div class="signUpBoxes">
+            <div class="formWidget">
+                <h1 id="signUpTitle">Sign Up</h1>
+                <form class="signUpWidget">
+                    <div class="emailWidget">
+                        <img id="emailIcon" src="assets/emailIcon.png" alt="Black Mail Icon">
+                        <input id="emailInput", name="Email", placeholder="Email"><br>
+                    </div>
+
+                    <div class="usernameWidget">
+                        <img id="userIcon" src="assets/usernameIcon.png" alt="Black Mail Icon">
+                        <input id="usernameInput", name="Username", placeholder="Username"><br>
+                    </div>
+                    
+                    <div class="passwordWidget">
+                        <img id="passwordIcon" src="assets/lockIcon.png" alt="Black Lock Icon">
+                        <input id="passwordInput", name="Password", placeholder="Password", type="password"><br>
+                    </div>
+                    
+                    <button id="createButton", type="button", onclick="myFunction()">Create Account</button><br>
+                    <div class="loginText">  
+                        <a id="alreadyTitle">Already have a account?</a> 
+                        <a id="loginLink", href="login.html"> Login Here!</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="infoWidget">
+                <img id="diverImage" src="assets/polyColorDiverFinal.png" alt="Female Diver">
+                <h1 id="hello">Hello Swim Fans</h1>
+                <h2 id="createAnAccount">Create An Account</h2>
+                <h2 id="connectTo">to connect with other</h2>
+                <h2 id="swimmersAndMore">Swimmers, Coaches, Teams, and more</h2>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
+    import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCzLcD82RAxaptD4VfpRW2pshlQgX_FvMw",
+        authDomain: "swimchat-8d634.firebaseapp.com",
+        databaseURL: "https://swimchat-8d634-default-rtdb.firebaseio.com",
+        projectId: "swimchat-8d634",
+        storageBucket: "swimchat-8d634.appspot.com",
+        messagingSenderId: "49158591781",
+        appId: "1:49158591781:web:78c29ebcea31315a6636cc",
+        measurementId: "G-11FCRKVE3D"
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    createButton.onclick = function writeUserData(){
+        const email = document.getElementById('emailInput').value;
+        const username = document.getElementById('usernameInput').value;
+        const password = document.getElementById('passwordInput').value;
+
+        const db = getDatabase();
+        const refrence = ref(db, 'users/' + username);
+
+        set(refrence, {
+            username: username,
+            email: email,
+            password : password
+        })
+        .then(() => {
+        // Data saved successfully!
+        window.location.href="login.html";
+        })
+        .catch((error) => {
+        // The write failed...
+        });
+
+        
+    }
+</script>

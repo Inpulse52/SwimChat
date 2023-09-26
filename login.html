@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Swim Chat Login</title>
+        <meta name="Swim Chat Login Page" content="Login">
+        <link rel="stylesheet" type="text/css" href="loginStyleSheet.css" />
+        <link rel="icon" href="assets/swimChatLogo.png">
+    </head>
+
+    <body> 
+        <div id="loginWidget">
+            <h1 id="loginTitle">Login</h1>
+            <form id="loginForm">
+                <div class="usernameWidget">
+                    <img id="userIcon" src="assets/usernameIcon.png" alt="Black Mail Icon">
+                    <input id="usernameInput", name="Username", placeholder="Username"><br>
+                </div>
+
+                <div class="passwordWidget">
+                    <img id="passwordIcon" src="assets/lockIcon.png" alt="Black Lock Icon">
+                    <input id="passwordInput", name="Password", placeholder="Password", type="password"><br>
+                </div>
+
+                <div class='forgotText'>
+                    <a id="forgotPassword">Forgot Password?</a>
+                    <a id="forgotLink", href="___">Click Here!</a>
+                </div>
+
+                <button id="loginButton", type="button", onclick="login();">Login</button><br>
+                
+                <div class="joinText">
+                    <a id="joinNow">New?</a>
+                    <a id="createLink", href="signUp.html">Join Here</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+
+<script type="module">
+
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
+    import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js';
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCzLcD82RAxaptD4VfpRW2pshlQgX_FvMw",
+        authDomain: "swimchat-8d634.firebaseapp.com",
+        databaseURL: "https://swimchat-8d634-default-rtdb.firebaseio.com",
+        projectId: "swimchat-8d634",
+        storageBucket: "swimchat-8d634.appspot.com",
+        messagingSenderId: "49158591781",
+        appId: "1:49158591781:web:78c29ebcea31315a6636cc",
+        measurementId: "G-11FCRKVE3D"
+    };
+    const app = initializeApp(firebaseConfig);
+
+    loginButton.onclick = function writeUserData(){
+        const username = document.getElementById('usernameInput').value;
+        const password = document.getElementById('passwordInput').value;
+        
+        const db = getDatabase();
+        const starCountRef = ref(db, 'users/' + username + '/password');
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            if ((data == null) || (data != password)){
+                window.alert("Error, Username or Password not valid")
+            }
+            else{
+                window.alert("No Error")
+            }
+            
+        });
+       
+    }
+</script>
